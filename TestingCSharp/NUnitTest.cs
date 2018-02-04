@@ -11,7 +11,6 @@ using NUnit.Framework;
 using RelevantCodes.ExtentReports;
 
 
-
 namespace TestingCSharp
 {
     [TestFixture]
@@ -31,9 +30,6 @@ namespace TestingCSharp
         [Test]
         public void SiteTest()
         {
-            
-
-            //ExtentReports extent = new ExtentReports("E:\\report\\report.html");
             ExtentReports extent = new ExtentReports(projectPath + "Reports\\report.html");
             var test = extent.StartTest("Testing site DemoQA", "Sample Description");
 
@@ -55,8 +51,7 @@ namespace TestingCSharp
             driver.FindElement(By.Id("phone_9")).SendKeys("00385951234567");
             driver.FindElement(By.Id("username")).SendKeys("Pero");
             driver.FindElement(By.Id("email_1")).SendKeys("pero@example.com");
-            
-            
+                        
             driver.FindElement(By.Id("profile_pic_10")).SendKeys(projectPath + "Photo\\image_photo.jpg");
 
             driver.FindElement(By.Id("description")).SendKeys("Hi, I am Pero");
@@ -84,7 +79,6 @@ namespace TestingCSharp
             Assert.AreEqual("Datepicker", driver.FindElement(By.CssSelector("h1.entry-title")).Text);
 
             takeScreenshot("Screenshot", driver);
-            //test.Log(LogStatus.Info, "Screenshot - " + test.AddScreenCapture("E:\\report\\Screenshot.jpeg"));
             test.Log(LogStatus.Info, "Screenshot - " + test.AddScreenCapture(projectPath + "Reports"+"\\" + "Screenshot.jpg"));
 
             System.Threading.Thread.Sleep(3000);
@@ -97,12 +91,9 @@ namespace TestingCSharp
 
         [TearDown]
         public void EndTest()
-        {
-            
+        {           
             driver.Close();
             Console.WriteLine("Closing Chrome");
-
         }
-
     }
 }
