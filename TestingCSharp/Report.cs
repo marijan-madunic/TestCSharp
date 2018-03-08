@@ -20,9 +20,10 @@ namespace TestingCSharp
 
         public static void takeScreenshot(string filename, IWebDriver driver)
         {
-            ITakesScreenshot screenshotDriver = driver as ITakesScreenshot;
-            Screenshot screenshot = screenshotDriver.GetScreenshot();
-            screenshot.SaveAsFile(projectPath + "Reports\\" + filename + ".jpg");
+            //ITakesScreenshot screenshotDriver = driver as ITakesScreenshot;
+            //Screenshot screenshot = screenshotDriver.GetScreenshot();
+            Screenshot screenshot = ((ITakesScreenshot)driver).GetScreenshot();
+            screenshot.SaveAsFile(projectPath + "Reports\\" + filename + ".jpg", OpenQA.Selenium.ScreenshotImageFormat.Jpeg);
         }
     }        
 }   
