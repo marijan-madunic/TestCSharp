@@ -23,6 +23,14 @@
     <!-- top, bottom -->
     <testViewChartLocation>bottom</testViewChartLocation>
 
+    <!-- global date format override -->
+    <!-- defaults to yyyy-MM-dd -->
+    <dateFormat>2018-02-04</dateFormat>
+
+    <!-- global time format override -->
+    <!-- defaults to HH:mm:ss -->
+    <timeFormat>18:40:34</timeFormat>
+
     <!-- custom javascript -->
     <scripts>
       <![CDATA[

@@ -9,6 +9,8 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using NUnit.Framework;
 using RelevantCodes.ExtentReports;
+using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Support.Events;
 
 
 namespace TestingCSharp
@@ -22,7 +24,7 @@ namespace TestingCSharp
             driver = new ChromeDriver();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("http://demoqa.com");
+            driver.Navigate().GoToUrl("https://demoqa.com/automation-practice-form/");
 
             Console.WriteLine("Opening Chrome");
         }
@@ -32,54 +34,47 @@ namespace TestingCSharp
         {
             ExtentReports extent = new ExtentReports(projectPath + "Reports\\report.html");
             var test = extent.StartTest("Testing site DemoQA", "Sample Description");
-
             test.Log(LogStatus.Info, "Testing DemoQA");
 
-            driver.FindElement(By.Id("menu-item-374")).Click();
+            
+            driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/div[2]/div/form/fieldset/div[8]/input")).SendKeys("Pero");
+            driver.FindElement(By.Id("lastname")).SendKeys("Peric");
+            driver.FindElement(By.Id("sex-0")).Click();
+            driver.FindElement(By.Id("exp-5")).Click();
 
-            driver.FindElement(By.Id("name_3_firstname")).SendKeys("Pero");
-            driver.FindElement(By.Id("name_3_lastname")).SendKeys("Peric");
-            driver.FindElement(By.CssSelector("input[value='divorced']")).Click();
-            driver.FindElement(By.CssSelector("input[value='dance']")).Click();
+            driver.FindElement(By.Id("datepicker")).SendKeys("06.04.2020.");
+            driver.FindElement(By.Id("profession-0")).Click();
+            driver.FindElement(By.Id("profession-1")).Click();
+            driver.FindElement(By.Id("photo")).SendKeys(projectPath + "Photo\\image_photo.jpg");
 
-            driver.FindElement(By.Id("dropdown_7")).SendKeys("Croatia");
+            SelectElement drpContinents = new SelectElement(driver.FindElement(By.Name("continents")));
+            drpContinents.SelectByValue("EU");
 
-            driver.FindElement(By.Id("mm_date_8")).SendKeys("6");
-            driver.FindElement(By.Id("dd_date_8")).SendKeys("6");
-            driver.FindElement(By.Id("yy_date_8")).SendKeys("1996");
+            SelectElement selenium_commands = new SelectElement(driver.FindElement(By.Id("selenium_commands")));
+            selenium_commands.SelectByText("Browser Commands");
+            selenium_commands.SelectByText("Switch Commands");
 
-            driver.FindElement(By.Id("phone_9")).SendKeys("00385951234567");
-            driver.FindElement(By.Id("username")).SendKeys("Pero");
-            driver.FindElement(By.Id("email_1")).SendKeys("pero@example.com");
-                        
-            driver.FindElement(By.Id("profile_pic_10")).SendKeys(projectPath + "Photo\\image_photo.jpg");
 
-            driver.FindElement(By.Id("description")).SendKeys("Hi, I am Pero");
-            driver.FindElement(By.Id("password_2")).SendKeys("A3n201n3.6h5g");
-            driver.FindElement(By.Id("confirm_password_password_2")).SendKeys("A3n201n3.6h5g");
+            driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[1]/aside[2]/ul/li[18]/a")).Click();
+            driver.FindElement(By.Id("datepicker")).SendKeys("03/06/2020");
 
+            driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[1]/aside[1]/ul/li[4]/a")).Click();
+
+            
+            Actions act = new Actions(driver);
+            IWebElement source = driver.FindElement(By.Id("draggable"));
+            IWebElement target = driver.FindElement(By.Id("droppable"));
+            act.DragAndDrop(source, target).Perform();
+
+            /*
             IJavaScriptExecutor jse = driver as IJavaScriptExecutor;
             jse.ExecuteScript("window.scrollBy(0, -250);");
 
             Assert.AreEqual("Registration", driver.FindElement(By.CssSelector("h1.entry-title")).Text);
-
-            driver.FindElement(By.Id("menu-item-38")).Click();
-
-            driver.FindElement(By.Id("menu-item-141")).Click();
-            
-            Actions act = new Actions(driver);
-            IWebElement source = driver.FindElement(By.Id("draggableview"));
-            IWebElement target = driver.FindElement(By.Id("droppableview"));
-            act.DragAndDrop(source, target).Perform();
-            
-            driver.FindElement(By.Id("menu-item-146")).Click();
-
-            driver.FindElement(By.Id("datepicker1")).SendKeys("February 12, 2018");
-
-            Assert.AreEqual("Datepicker", driver.FindElement(By.CssSelector("h1.entry-title")).Text);
+            */
 
             takeScreenshot("Screenshot", driver);
-            test.Log(LogStatus.Info, "Screenshot - " + test.AddScreenCapture(projectPath + "Reports"+"\\" + "Screenshot.jpg"));
+            test.Log(LogStatus.Info, "Screenshot - " + test.AddScreenCapture(projectPath + "Reports" + "\\" + "Screenshot.jpg"));
 
             System.Threading.Thread.Sleep(3000);
 
@@ -91,7 +86,7 @@ namespace TestingCSharp
 
         [TearDown]
         public void EndTest()
-        {           
+        {
             driver.Close();
             Console.WriteLine("Closing Chrome");
         }
