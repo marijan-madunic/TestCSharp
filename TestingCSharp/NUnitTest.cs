@@ -36,20 +36,24 @@ namespace TestingCSharp
             var test = extent.StartTest("Testing site DemoQA", "Sample Description");
             test.Log(LogStatus.Info, "Testing DemoQA");
 
-            
-            driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/div[2]/div/form/fieldset/div[8]/input")).SendKeys("Pero");
-            driver.FindElement(By.Id("lastname")).SendKeys("Peric");
-            driver.FindElement(By.Id("sex-0")).Click();
-            driver.FindElement(By.Id("exp-5")).Click();
 
-            driver.FindElement(By.Id("datepicker")).SendKeys("06.04.2020.");
-            driver.FindElement(By.Id("profession-0")).Click();
-            driver.FindElement(By.Id("profession-1")).Click();
-            driver.FindElement(By.Id("photo")).SendKeys(projectPath + "Photo\\image_photo.jpg");
+            //driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/div[2]/div/form/fieldset/div[8]/input")).SendKeys("Pero");
+            driver.FindElement(By.Id("firstName")).SendKeys("Pero");
+            driver.FindElement(By.Id("lastName")).SendKeys("Peric");
+            driver.FindElement(By.Id("gender-radio-1")).Click();
+            driver.FindElement(By.Id("userNumber")).SendKeys("+385951234567");
 
-            SelectElement drpContinents = new SelectElement(driver.FindElement(By.Name("continents")));
-            drpContinents.SelectByValue("EU");
+            driver.FindElement(By.Id("dateOfBirthInput")).SendKeys("06.06.2020.");
+            driver.FindElement(By.Id("subjectsWrapper")).SendKeys("Testing");
+            driver.FindElement(By.Id("hobbies-checkbox-1")).Click();
+            driver.FindElement(By.Id("uploadPicture")).SendKeys(projectPath + "Photo\\image_photo.jpg");
 
+            driver.FindElement(By.Id("currentAddress-wrapper")).SendKeys("Current Address Testing");
+
+
+            SelectElement drpContinents = new SelectElement(driver.FindElement(By.Id("stateCity-wrapper")));
+            drpContinents.SelectByValue("NCR");
+            /*
             SelectElement selenium_commands = new SelectElement(driver.FindElement(By.Id("selenium_commands")));
             selenium_commands.SelectByText("Browser Commands");
             selenium_commands.SelectByText("Switch Commands");
@@ -65,6 +69,8 @@ namespace TestingCSharp
             IWebElement source = driver.FindElement(By.Id("draggable"));
             IWebElement target = driver.FindElement(By.Id("droppable"));
             act.DragAndDrop(source, target).Perform();
+
+            */
 
             /*
             IJavaScriptExecutor jse = driver as IJavaScriptExecutor;
