@@ -37,52 +37,29 @@ namespace TestingCSharp
             test.Log(LogStatus.Info, "Testing DemoQA");
 
 
-            //driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/div[2]/div/form/fieldset/div[8]/input")).SendKeys("Pero");
             driver.FindElement(By.Id("firstName")).SendKeys("Pero");
             driver.FindElement(By.Id("lastName")).SendKeys("Peric");
-            driver.FindElement(By.Id("gender-radio-1")).Click();
-            driver.FindElement(By.Id("userNumber")).SendKeys("+385951234567");
+            driver.FindElement(By.Id("userEmail")).SendKeys("Pero@example.com");
 
-            driver.FindElement(By.Id("dateOfBirthInput")).SendKeys("06.06.2020.");
-            driver.FindElement(By.Id("subjectsWrapper")).SendKeys("Testing");
-            driver.FindElement(By.Id("hobbies-checkbox-1")).Click();
-            driver.FindElement(By.Id("uploadPicture")).SendKeys(projectPath + "Photo\\image_photo.jpg");
+            driver.FindElement(By.XPath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/form/div[3]/div[2]/div[1]/label")).Click();
 
-            driver.FindElement(By.Id("currentAddress-wrapper")).SendKeys("Current Address Testing");
+            driver.FindElement(By.Id("userNumber")).SendKeys("0951234567");
 
+            driver.FindElement(By.Id("dateOfBirthInput")).Click();
+            driver.FindElement(By.XPath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/form/div[5]/div[2]/div[2]/div[2]/div/div/div[2]/div[2]/div[4]/div[3]")).Click();
 
-            SelectElement drpContinents = new SelectElement(driver.FindElement(By.Id("stateCity-wrapper")));
-            drpContinents.SelectByValue("NCR");
-            /*
-            SelectElement selenium_commands = new SelectElement(driver.FindElement(By.Id("selenium_commands")));
-            selenium_commands.SelectByText("Browser Commands");
-            selenium_commands.SelectByText("Switch Commands");
-
-
-            driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[1]/aside[2]/ul/li[18]/a")).Click();
-            driver.FindElement(By.Id("datepicker")).SendKeys("03/06/2020");
-
-            driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[1]/aside[1]/ul/li[4]/a")).Click();
-
+            driver.FindElement(By.XPath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/form/div[7]/div[2]/div[1]/label")).Click();
             
-            Actions act = new Actions(driver);
-            IWebElement source = driver.FindElement(By.Id("draggable"));
-            IWebElement target = driver.FindElement(By.Id("droppable"));
-            act.DragAndDrop(source, target).Perform();
+            driver.FindElement(By.Id("uploadPicture")).SendKeys(projectPath + "Photo\\image_photo.jpg");
+            
+            //driver.FindElement(By.Id("currentAddress-label")).SendKeys("Address");
 
-            */
 
-            /*
-            IJavaScriptExecutor jse = driver as IJavaScriptExecutor;
-            jse.ExecuteScript("window.scrollBy(0, -250);");
-
-            Assert.AreEqual("Registration", driver.FindElement(By.CssSelector("h1.entry-title")).Text);
-            */
 
             takeScreenshot("Screenshot", driver);
             test.Log(LogStatus.Info, "Screenshot - " + test.AddScreenCapture(projectPath + "Reports" + "\\" + "Screenshot.jpg"));
 
-            System.Threading.Thread.Sleep(3000);
+            System.Threading.Thread.Sleep(2000);
 
             Console.WriteLine("Testing DemoQA");
 
