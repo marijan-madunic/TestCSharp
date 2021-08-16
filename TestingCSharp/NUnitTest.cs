@@ -41,14 +41,16 @@ namespace TestingCSharp
             driver.FindElement(By.Id("lastName")).SendKeys("Peric");
             driver.FindElement(By.Id("userEmail")).SendKeys("Pero@example.com");
 
-            driver.FindElement(By.XPath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/form/div[3]/div[2]/div[1]/label")).Click();
+            //driver.FindElement(By.XPath("/html/body/div[@id='app']/div[@class='body-height']/div[@class='container playgound-body']/div[@class='row']/div[@class='col-12 mt-4 col-md-6']/div[@class='practice-form-wrapper']/form[@id='userForm']/div[@id='genterWrapper']/div[@class='col-md-9 col-sm-12']/div[@class='custom-control custom-radio custom-control-inline'][1]/label[@class='custom-control-label']")).Click();
 
             driver.FindElement(By.Id("userNumber")).SendKeys("0951234567");
 
-            driver.FindElement(By.Id("dateOfBirthInput")).Click();
-            driver.FindElement(By.XPath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/form/div[5]/div[2]/div[2]/div[2]/div/div/div[2]/div[2]/div[4]/div[3]")).Click();
+            //driver.FindElement(By.Id("dateOfBirthInput")).Click();
+            //driver.FindElement(By.XPath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/form/div[5]/div[2]/div[2]/div[2]/div/div/div[2]/div[2]/div[4]/div[3]")).Click();
 
-            driver.FindElement(By.XPath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/form/div[7]/div[2]/div[1]/label")).Click();
+            //driver.FindElement(By.Id("subjectsContainer")).Click();
+
+            //driver.FindElement(By.XPath("/html/body/div[@id='app']/div[@class='body-height']/div[@class='container playgound-body']/div[@class='row']/div[@class='col-12 mt-4 col-md-6']/div[@class='practice-form-wrapper']/form[@id='userForm']/div[@id='hobbiesWrapper']/div[@class='col-md-9 col-sm-12']/div[@class='custom-control custom-checkbox custom-control-inline'][1]/label[@class='custom-control-label']")).Click();
             
             driver.FindElement(By.Id("uploadPicture")).SendKeys(projectPath + "Photo\\image_photo.jpg");
             
