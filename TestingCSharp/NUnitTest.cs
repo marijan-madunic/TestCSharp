@@ -41,20 +41,33 @@ namespace TestingCSharp
             driver.FindElement(By.Id("lastName")).SendKeys("Peric");
             driver.FindElement(By.Id("userEmail")).SendKeys("Pero@example.com");
 
-            //driver.FindElement(By.XPath("/html/body/div[@id='app']/div[@class='body-height']/div[@class='container playgound-body']/div[@class='row']/div[@class='col-12 mt-4 col-md-6']/div[@class='practice-form-wrapper']/form[@id='userForm']/div[@id='genterWrapper']/div[@class='col-md-9 col-sm-12']/div[@class='custom-control custom-radio custom-control-inline'][1]/label[@class='custom-control-label']")).Click();
-
+            driver.FindElement(By.XPath("/html/body/div[@id='app']/div[@class='body-height']/div[@class='container playgound-body']/div[@class='row']/div[@class='col-12 mt-4 col-md-6']/div[@class='practice-form-wrapper']/form[@id='userForm']/div[@id='genterWrapper']/div[@class='col-md-9 col-sm-12']/div[@class='custom-control custom-radio custom-control-inline'][1]/label[@class='custom-control-label']")).Click();
+            
             driver.FindElement(By.Id("userNumber")).SendKeys("0951234567");
 
-            //driver.FindElement(By.Id("dateOfBirthInput")).Click();
-            //driver.FindElement(By.XPath("/html/body/div[1]/div/div/div[2]/div[2]/div[1]/form/div[5]/div[2]/div[2]/div[2]/div/div/div[2]/div[2]/div[4]/div[3]")).Click();
+            driver.FindElement(By.Id("dateOfBirthInput")).Clear();
+            driver.FindElement(By.Id("dateOfBirthInput")).SendKeys("06 Jun 2020");
 
-            //driver.FindElement(By.Id("subjectsContainer")).Click();
 
-            //driver.FindElement(By.XPath("/html/body/div[@id='app']/div[@class='body-height']/div[@class='container playgound-body']/div[@class='row']/div[@class='col-12 mt-4 col-md-6']/div[@class='practice-form-wrapper']/form[@id='userForm']/div[@id='hobbiesWrapper']/div[@class='col-md-9 col-sm-12']/div[@class='custom-control custom-checkbox custom-control-inline'][1]/label[@class='custom-control-label']")).Click();
+
+            //driver.FindElement(By.XPath("/html/body/div[@id='app']/div[@class='body-height']/div[@class='container playgound-body']/div[@class='row']/div[@class='col-12 mt-4 col-md-6']/div[@class='practice-form-wrapper']/form[@id='userForm']/div[@id='subjectsWrapper']/div[@class='col-md-9 col-sm-12']/div[@id='subjectsContainer']/div[@class='subjects-auto-complete__control css-yk16xz-control']/div[@class='subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3']")).Click();
+
+
+            //driver.FindElement(By.XPath("/html/body/div[@id='app']/div[@class='body-height']/div[@class='container playgound-body']/div[@class='row']/div[@class='col-12 mt-4 col-md-6']/div[@class='practice-form-wrapper']/form[@id='userForm']/div[@id='subjectsWrapper']/div[@class='col-md-9 col-sm-12']/div[@id='subjectsContainer']/div[@class='subjects-auto-complete__control subjects-auto-complete__control--is-focused subjects-auto-complete__control--menu-is-open css-1pahdxg-control']/div[@class='subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3']")).SendKeys("English");
+
+
+            //driver.FindElement(By.XPath("/html/body/div[@id='app']/div[@class='body-height']/div[@class='container playgound-body']/div[@class='row']/div[@class='col-12 mt-4 col-md-6']/div[@class='practice-form-wrapper']/form[@id='userForm']/div[@id='subjectsWrapper']/div[@class='col-md-9 col-sm-12']/div[@id='subjectsContainer']/div[@class='subjects-auto-complete__control subjects-auto-complete__control--is-focused subjects-auto-complete__control--menu-is-open css-1pahdxg-control']/div[@class='subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3']")).Click();
+
+            //driver.FindElement(By.ClassName("subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3")).Click();
+            //SelectElement se = new SelectElement(driver.FindElement(By.XPath("/html/body/div[@id='app']/div[@class='body-height']/div[@class='container playgound-body']/div[@class='row']/div[@class='col-12 mt-4 col-md-6']/div[@class='practice-form-wrapper']/form[@id='userForm']/div[@id='subjectsWrapper']/div[@class='col-md-9 col-sm-12']/div[@id='subjectsContainer']/div[@class='subjects-auto-complete__control subjects-auto-complete__control--is-focused css-1pahdxg-control']/div[@class='subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi subjects-auto-complete__value-container--has-value css-1hwfws3']")));
+            //se.SelectByValue("English");
+
+            // driver.FindElement(By.XPath("/html/body/div[@id='app']/div[@class='body-height']/div[@class='container playgound-body']/div[@class='row']/div[@class='col-12 mt-4 col-md-6']/div[@class='practice-form-wrapper']/form[@id='userForm']/div[@id='hobbiesWrapper']/div[@class='col-md-9 col-sm-12']/div[@class='custom-control custom-checkbox custom-control-inline'][3]/label[@class='custom-control-label']")).Click();
             
+
             driver.FindElement(By.Id("uploadPicture")).SendKeys(projectPath + "Photo\\image_photo.jpg");
-            
-            //driver.FindElement(By.Id("currentAddress-label")).SendKeys("Address");
+
+            driver.FindElement(By.Id("currentAddress")).SendKeys("Address");
 
 
 
